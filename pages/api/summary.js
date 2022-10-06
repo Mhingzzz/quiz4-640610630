@@ -16,8 +16,8 @@ export default function summaryRoute(req, res) {
 		//return response
 		const users = readUsersDB();
 		const onlyUser = users.filter((x) => !x.isAdmin);
-		const totalUsers = users.length;
-		const totalAdmins = onlyUser.filter((user) => user.isAdmin).length;
+		const totalUsers = users.filter((user) => !user.isAdmin).length;
+		const totalAdmins = users.filter((user) => user.isAdmin).length;
 		const totalMoney = onlyUser.reduce((acc, user) => acc + user.money, 0);
 		console.log(totalMoney);
 		return res.json({
