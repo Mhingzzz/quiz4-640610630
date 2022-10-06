@@ -8,7 +8,7 @@ export default function depositRoute(req, res) {
 		if (!user || user.isAdmin) {
 			return res.status(403).json({
 				ok: false,
-				message: "You do not have permission to check balance",
+				message: "You do not have permission to deposit",
 			});
 		}
 		const amount = req.body.amount;
